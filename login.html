@@ -16,5 +16,19 @@
   <input type ="button" onclick="check(this.form)" value="Login"/>
   <input type = "reset" value="Cancel"/>
 </form>
-  <body>
+<script language ="javascript">
+function check(form)/* checks if username and id are matching*/
+{
+  if (form.userid.value=="myuserid"&&form.pswrd.value=="mypswrd")
+  {
+    window.open('about.html')
+  }
+  else
+  {
+    alert ("Oops! Incorrect Username or Password")
+
+  }
+}
+</script>
+  </body>
 </html>
