@@ -1,0 +1,30 @@
+@import 'bootstrap.min.css'
+.narrow {
+      width:960px;
+
+      border-left:1px solid #ddd;
+
+        border-right:1px solid #ddd;
+
+}
+
+navbar {
+
+        padding-top:20px;
+
+        background:#fff;
+
+        color:#333;
+
+        padding-left:5%;
+
+}
+.jumbotron h1 {
+
+        color:#fff;
+
+        text-align:center;
+
+        text-shadow:2px 2px 2px rgba(0,0,0,0.3);
+
+}
