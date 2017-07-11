@@ -1,27 +1,59 @@
-@import 'bootstrap.min.css'
-body{
-  padding:0;
+@import 'bootstrap.min.css';
 
 
-body{
- padding:0;
- margin:0;
- background-color: #452573;
- text-align: center;
+
 }
+body {
+ text-align: center;
+ font-family: 'Verdana',sans-serif;
+ font-size:70px;
+
+}
+.navbar{
+  margin-bottom:0px;
+  height:40px;
+  background-colour:
+
+  }
+    .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  .navbar li{
+    display:inline-block;
+  }
 
 .jumbotron {
- background-image:url( https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlY4NVbtbZ8voTueH2We9pKCIhmBC0hdJwdl36tSPWD-BYeZIi);
- height:400px;
- background-position: center;
+  background-image: url(https://i.ytimg.com/vi/T40NSkd7Olc/maxresdefault.jpg);
+  background-size: cover;
+  text-align: center;
+  font-family: 'arial',cursive;
+  font-style: italic;
+  height:500px;
+
  }
- h1{
-   color: #FFF;
-   font-family: 'Ruda', sans-serif;
-   font-size:70px;
-   font-weight: 900;
-   margin:0;
-   padding-top:120px;
-   text-align: center;
+ .jumbotron h1{
+   color: #330066;
+   word-spacing: 0.09em;
+   letter-spacing: normal;
+   line-height:3.20em;
+   font-size: 50px;
+   font-family: 'Arial',cursive;
+   font-weight: bold;
+ }
+ .jumbotron p{
+   font-size: 20px;
+   word-spacing: 0.05em;
+   line-height:1.0em;
+   letter-spacing: normal;
+   color: #9900e6;
+ }
+
+ footer{
+   background-color: blue;
+  text-align: center;
+  font-size:15px;
+   padding-top: 20px;
 
  }

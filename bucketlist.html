@@ -11,7 +11,7 @@
   <!-- The width=device-width sets the width of the page to follow screen width-->
   <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
   <title> BucketList </title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link "styles/style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -24,7 +24,7 @@
       <form action="/action_page.php">
   <fieldset>
     <legend>My BucketList:</legend>
-    BucketList Item:<br>
+    Add BucketList Item:<br>
     <input type="text" name="BucketList Item" value=""><br>
     Due Date:<br>
     <input type="text" name="Due-Date" value=""><br><br>
@@ -32,6 +32,18 @@
   </fieldset>
 </form>
       </div>
+      <form action = "/action_page.php">
+        <fieldset>
+          <legend>My BucketList: </legend>
+          Delete BucketList Item:<br>
+          <input type = "text" name="BucketList Item" value =""><br>
+          Due Date:<br>
+        <input type = "text" name="Due Date" value=""><br><br>
+        <input type = "Submit" value="Submit">
+      </fieldset>
+    </form>
+
+
 <!--End jumbotron-->
 </body>
 <!-- Footer-->
