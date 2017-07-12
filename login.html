@@ -12,20 +12,20 @@
   <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
   <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel='stylesheet' href='styles/style.css' type='text/css'/>
-    <link rel="stylesheet" href="styles/registration-form-with-bootstarp.css">
+    <link rel="stylesheet" href="styles/registration-form-with-bootstrap.css">
 </head>
 <body>
   <div class="container">
-<div class="row">
+<div class="card card-container">
 <div class="page-header">
 <h1> LogIn!</h1>
 </div>
 <form class="form-horizontal" role="form" method="post" action="#">
 
   <div class="form-group">
-  <label for="userName" class="col-sm-2 control-label">User Name:</label>
+  <label for="userName" class="col-sm-2 control-label">Email Address:</label>
   <div class="col-sm-6">
-  <input type="email" name="userName" class="form-control" id="userName" placeholder="User Name">
+  <input type="email" name="Email" class="form-control" id="email" placeholder="Email Address">
   </div>
   </div>
 
@@ -35,14 +35,41 @@
   <input type="password" name="passwd" class="form-control" id="passwd" placeholder="Password">
   </div>
   </div>
+  <div id="remember" class="checkbox">
+    <label>
+      <input type="checkbox" value="remember-me">Remember me
+    </label>
 
   <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
-  <button type="submit" class="btn btn-primary" id="register">LogIn</button>
+  <a href="mybucketlist.html" class=" btn btn-link">LogIn</a>
   </div>
   </div>
 
 </form>
+<a href=# class="forgot-password">
+  Forgot Password?
+</a>
+<!-- Footer-->
+
+<div class="container footer">
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <p> Bucketlist, 2017</p>
+
+        </div>
+
+        <div class="col-lg-6">
+          <div class = "pull-right">
+          <p><strong>Email:</strong>florencemnyazi@gmail.com</p>
+                     </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- End Footer -->
 <script language ="javascript"> </script>
 <script src='javascripts/jquery-3.2.1.min.js'></script>
 <script src='javascripts/bootstrap.min.js'></script>

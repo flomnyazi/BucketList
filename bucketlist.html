@@ -12,17 +12,18 @@
   <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
   <title> BucketList </title>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link "styles/style.css" rel="stylesheet"/>
+    <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
   <!--Jumbotron-->
   <div class ="container narrow">
-    <div class ="jumbotron">
-      <h3> What do you want to do before you expire?</h3>
 
-      <p> Dreamt of going bungee jumping; Want to go on a hot air baloon ride in the Mara; Or do you simply want to go camping under the stars? Create you ultimate buketlist by adding items below and when you want to accomplish </p>
+      <h2> What do you want to do before you expire?</h2>
+
+      <p> Dreamt of going bungee jumping; Want to go on a hot air baloon ride in the Mara; Or do you simply want to go camping under the stars? Create you ultimate bucketlist by adding items below and when you want to accomplish </p>
       <form action="/action_page.php">
   <fieldset>
+    <div clas="jumbotron">
     <legend>My BucketList:</legend>
     Add BucketList Item:<br>
     <input type="text" name="BucketList Item" value=""><br>
@@ -31,7 +32,7 @@
     <input type="submit" value="Submit">
   </fieldset>
 </form>
-      </div>
+
       <form action = "/action_page.php">
         <fieldset>
           <legend>My BucketList: </legend>
@@ -42,6 +43,7 @@
         <input type = "Submit" value="Submit">
       </fieldset>
     </form>
+  </div>
 
 
 <!--End jumbotron-->

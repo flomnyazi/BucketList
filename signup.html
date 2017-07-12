@@ -1,16 +1,20 @@
 <head>
 <link rel="stylesheet" href="styles/bootstrap.min.css">
 <link rel="stylesheet" href="styles/datepicker.css">
-<link rel="stylesheet" href="styles/registration-form-with-bootstarp.css">
+<link rel="stylesheet" href="styles/registration-form-with-bootstrap.css">
+<link rel="stylesheet" href="styles/style.css"
 </head>
 
 <body>
   <div class="container">
-<div class="row">
+<div class="card card-container">
 <div class="page-header">
 <h1> Sign Up!</h1>
 </div>
 <form class="form-horizontal" role="form" method="post" action="#">
+  <fieldset><legend class="text-center">All Fields Required!</legend>
+
+
 
 <div class="form-group">
 <label for="firstName" class="col-sm-2 control-label">First Name:</label>
@@ -20,16 +24,16 @@
 </div>
 
 <div class="form-group">
-<label for="dob" class="col-sm-2 control-label">DOB:</label>
+<label for="dob" class="col-sm-2 control-label">Email address:</label>
 <div class="col-sm-6">
-<input type="text" name="dob" class="form-control datepicker" id="dob" placeholder=" Date of Birth">
+<input type="text" name="email" class="form-control" id="email" placeholder=" Your email address">
 </div>
 </div>
 
 <div class="form-group">
 <label for="userName" class="col-sm-2 control-label">User Name:</label>
 <div class="col-sm-6">
-<input type="email" name="userName" class="form-control" id="userName" placeholder="User Name">
+<input type="text" name="userName" class="form-control" id="userName" placeholder="Pick a fun user name">
 </div>
 </div>
 
@@ -41,10 +45,18 @@
 </div>
 
 <div class="form-group">
+<label for="passwd" class="col-sm-2 control-label"> Confirm Password:</label>
+<div class="col-sm-6">
+<input type="password" name="passwd" class="form-control" id="passwd" placeholder="Just to be sure!">
+</div>
+</div>
+
+<div class="form-group">
 <div class="col-sm-offset-2 col-sm-10">
 <button type="submit" class="btn btn-primary" id="register">Register</button>
 </div>
 </div>
+</fieldset>
 
 </form>
 
