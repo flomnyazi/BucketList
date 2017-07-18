@@ -1,4 +1,4 @@
-function check(form)/* checks if username and id are matching*/
+function check(form)/* checks if username and password are matching*/
 {
   if (form.emailid.value=="myemailid"&&form.pswrd.value=="mypswrd")
   {
