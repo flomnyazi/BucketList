@@ -1,8 +1,10 @@
+<!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="styles/bootstrap.min.css">
-<link rel="stylesheet" href="styles/datepicker.css">
-<link rel="stylesheet" href="styles/registration-form-with-bootstrap.css">
-<link rel="stylesheet" href="styles/style.css"
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/registration-form-with-bootsrap.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}"/>
+<link rel ="stylesheet" href="{{url_for ('static', filename='styles/datepicker.css') }}"/>
+<link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
 </head>
 
 <body>
@@ -11,7 +13,7 @@
 <div class="page-header">
 <h1> Sign Up!</h1>
 </div>
-<form class="form-horizontal" role="form" method="post" action="#">
+<form class="form-horizontal" role="form" method="post" action="/signup">
   <fieldset><legend class="text-center">All Fields Required!</legend>
 
 
@@ -45,15 +47,15 @@
 </div>
 
 <div class="form-group">
-<label for="passwd" class="col-sm-2 control-label"> Confirm Password:</label>
+<label for="passwd2" class="col-sm-2 control-label"> Confirm Password:</label>
 <div class="col-sm-6">
-<input type="password" name="passwd" class="form-control" id="passwd" placeholder="Just to be sure!">
+<input type="password" name="passwd2" class="form-control" id="passwd" placeholder="Just to be sure!">
 </div>
 </div>
 
 <div class="form-group">
 <div class="col-sm-offset-2 col-sm-10">
-<a href="login.html"<button type="submit" class="btn btn-primary" id="register">SignUp!</button></a>
+<input type="submit" class="btn btn-primary" id="register" name="submit" value="SignUp!">
 </div>
 </div>
 </fieldset>
@@ -67,3 +69,5 @@
 <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="js/registration-form-with-bootstarp.js"></script>
 </body>
+
+</html>

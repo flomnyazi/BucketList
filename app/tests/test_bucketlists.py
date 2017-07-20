@@ -1,6 +1,6 @@
 from unittest import TestCase
-from bucketlists.bucketlists import BucketList
-from items.items import Itemgit
+from app.bucketlists.bucketlists import BucketList
+from app.items.items import Item
 
 
 class TestBucketLists(TestCase):

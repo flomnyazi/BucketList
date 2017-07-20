@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+{# <html>
 <head>
   <meta charset = "utf-8">
   <meta name="description" content="BucketList WebApp">
@@ -10,9 +9,9 @@
   <!--This element ensures proper rendering and zooming-->
   <!-- The width=device-width sets the width of the page to follow screen width-->
   <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
-  <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link rel='stylesheet' href='styles/style.css' type='text/css'/>
-    <link rel="stylesheet" href="styles/registration-form-with-bootstrap.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}"/>
+  <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/registration-form-with-bootstrap.css') }}"/>
 </head>
 <body>
   <div class="container">
@@ -20,10 +19,10 @@
 <div class="page-header">
 <h1> LogIn!</h1>
 </div>
-<form class="form-horizontal" role="form" method="post" action="#">
+<form class="form-horizontal" role="form" method="POST" action="/login">
 
   <div class="form-group">
-  <label for="userName" class="col-sm-2 control-label">Email Address:</label>
+  <label for="email" class="col-sm-2 control-label">Email Address:</label>
   <div class="col-sm-6">
   <input type="email" name="Email" class="form-control" id="email" placeholder="Email Address">
   </div>
@@ -42,7 +41,7 @@
 
   <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
-  <a href="mybucketlist.html" <button type="submit" class=" btn btn-primary">LogIn </button></a>
+  <input type="submit" name="submit" value="LogIn ">
   </div>
   </div>
 
@@ -74,5 +73,29 @@
 <script src='javascripts/jquery-3.2.1.min.js'></script>
 <script src='javascripts/bootstrap.min.js'></script>
 <scripts src='javascripts/script.js'></script>
+  </body>
+</html>#}
+
+<html>
+  <head>
+    <title>BucketList App- login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Please login</h1>
+      <br>
+      <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
   </body>
 </html>
