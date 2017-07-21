@@ -1,7 +1,6 @@
 class BucketList(object):
-    def __init__(self, name, item):
+    def __init__(self, name,activity):
         self.name = name
-        self.item = item
+        activities = []
 
-
-pass
+   pass

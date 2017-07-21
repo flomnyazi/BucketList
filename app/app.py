@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 # Data structure
 users = {'test@test.com': 'some thing here'} # we save the class here
-bucketlists = {}
-activities = {}
+bucketlists = []
+activities = []
 
 
 @app.route('/')
