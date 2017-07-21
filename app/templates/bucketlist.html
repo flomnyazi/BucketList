@@ -11,8 +11,8 @@
   <!-- The width=device-width sets the width of the page to follow screen width-->
   <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
   <title> BucketList </title>
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link href="styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}"/>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
       <h2> What do you want to do before you expire?</h2>
 
       <p> Dreamt of going bungee jumping; Want to go on a hot air baloon ride in the Mara; Or do you simply want to go camping under the stars? Create you ultimate bucketlist by adding items below and when you want to accomplish </p>
-      <form action="/action_page.php">
+      <form class="form-horizontal" role="form" method="post" action="/bucketlist">
   <fieldset>
     <div class="jumbotron">
     <legend>My BucketList:</legend>
@@ -63,8 +63,5 @@
 
 <!-- End Footer -->
 
-<script src='javascripts/jquery-3.2.1.min.js'></script>
-<script src='javascripts/bootstrap.min.js'></script>
-<scripts src='javascripts/script.js'></script>
 </body>
 </html>

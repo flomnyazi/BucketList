@@ -41,12 +41,15 @@ def signup():
 
 
 @app.route('/mybucketlist', methods=['GET', 'POST'])
+@login_required
 def create_bucketlist():
     if request.method == 'POST':
-        return 'post made!'
-
+        bucketlist = request.form['bucketlist']
+        user_id = session['id']
+        add_bucket_list(bucketlist, user_id)
+        flash(bucketlist + ' has been added successful.')
+        return redirect(url_for('mybucketlist'))
     return render_template('mybucketlist.html')
-
 
 @app.route('/viewbucketlist')
 def view_bucketlist():
