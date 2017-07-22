@@ -40,7 +40,7 @@ def signup():
     return render_template('signup.html')
 
 
-@app.route('/mybucketlist', methods=['GET', 'POST'])
+@app.route('/bucketlist', methods=['GET', 'POST'])
 @login_required
 def create_bucketlist():
     if request.method == 'POST':
@@ -48,13 +48,27 @@ def create_bucketlist():
         user_id = session['id']
         add_bucket_list(bucketlist, user_id)
         flash(bucketlist + ' has been added successful.')
-        return redirect(url_for('mybucketlist'))
-    return render_template('mybucketlist.html')
+        return redirect(url_for('update_bucketlist'))
+    return render_template('bucketlist.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    session.pop('email', None)
+    session.pop('id', None)
+    flash('you are logged out.')
+    return redirect(url_for('index'))
+
+@app.route('/bucketlist', methods =['GET', 'POST'])
+def update_bucketlist():
+    if request.method == 'POST':
+        bucketlist = request.form['bucketlist']
+        user_id = session['id']
+        add_bucket_list(bucketlist, user_id)
+        flash(bucketlist + ' has been updated successful.')
+
+    return render_template('bucketlist.html')
 
 @app.route('/viewbucketlist')
 def view_bucketlist():
     return render_template('View.html')
-
-@app.route('/bucketlist')
-def update_bucketlist():
-    return render_template('bucketlist.html')
