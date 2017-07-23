@@ -39,18 +39,6 @@ def signup():
         return redirect(url_for('index'))
     return render_template('signup.html')
 
-
-@app.route('/bucketlist', methods=['GET', 'POST'])
-@login_required
-def create_bucketlist():
-    if request.method == 'POST':
-        bucketlist = request.form['bucketlist']
-        user_id = session['id']
-        add_bucket_list(bucketlist, user_id)
-        flash(bucketlist + ' has been added successful.')
-        return redirect(url_for('update_bucketlist'))
-    return render_template('bucketlist.html')
-
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
@@ -59,15 +47,39 @@ def logout():
     flash('you are logged out.')
     return redirect(url_for('index'))
 
-@app.route('/bucketlist', methods =['GET', 'POST'])
+
+@app.route('/mybucketlist', methods=['GET', 'POST'])
+@login_required
+def create_bucketlist():
+    if request.method == 'POST':
+        bucketlist = request.form['bucketlist']
+        user_id = session['id']
+        add_bucket_list(bucketlist, user_id)
+        flash(bucketlist + ' has been added successful.')
+        return redirect(url_for('mybucketlist'))
+    return render_template('mybucketlist.html')
+
+@app.route('/mybucketlist', methods =['GET', 'POST'])
 def update_bucketlist():
     if request.method == 'POST':
         bucketlist = request.form['bucketlist']
         user_id = session['id']
         add_bucket_list(bucketlist, user_id)
         flash(bucketlist + ' has been updated successful.')
+    return render_template('mybucketlist.html')
 
-    return render_template('bucketlist.html')
+@app.route('/mybucketlist', methods =['GET', 'POST'])
+def delete_bucketlist():
+    if request.method == 'POST':
+        bucketlist = request.form['bucketlist']
+        user_id = session['id']
+        add_bucket_list(bucketlist, user_id)
+        flash(bucketlist + ' has been deleted successful.')
+      
+    return render_template('mybucketlist.html')
+
+
+
 
 @app.route('/viewbucketlist')
 def view_bucketlist():

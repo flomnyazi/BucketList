@@ -1,101 +1,23 @@
-{# <html>
-<head>
-  <meta charset = "utf-8">
-  <meta name="description" content="BucketList WebApp">
-  <!--Defines description of the webpage-->
-  <meta name="author" content="Florence Mnyazi">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name = "viewport" content="width=device-width, initial-scale=1">
-  <!--This element ensures proper rendering and zooming-->
-  <!-- The width=device-width sets the width of the page to follow screen width-->
-  <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}"/>
-  <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'styles/registration-form-with-bootstrap.css') }}"/>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+
   <div class="container">
-<div class="card card-container">
-<div class="page-header">
-<h1> LogIn!</h1>
-</div>
-<form class="form-horizontal" role="form" method="POST" action="/login">
-
-  <div class="form-group">
-  <label for="email" class="col-sm-2 control-label">Email Address:</label>
-  <div class="col-sm-6">
-  <input type="email" name="Email" class="form-control" id="email" placeholder="Email Address">
-  </div>
-  </div>
-
-  <div class="form-group">
-  <label for="passwd" class="col-sm-2 control-label">Password:</label>
-  <div class="col-sm-6">
-  <input type="password" name="passwd" class="form-control" id="passwd" placeholder="Password">
-  </div>
-  </div>
-  <div id="remember" class="checkbox">
-    <label>
-      <input type="checkbox" value="remember-me">Remember me
-    </label>
-
-  <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-  <input type="submit" name="submit" value="LogIn ">
-  </div>
-  </div>
-
-</form>
-<a href=# class="forgot-password">
-  Forgot Password?
-</a>
-<!-- Footer-->
-
-<div class="container footer">
-        <div class="row marketing">
-            <div class="col-lg-6">
-                <p> Bucketlist, 2017</p>
-
-        </div>
-
-        <div class="col-lg-6">
-          <div class = "pull-right">
-          <p><strong>Email:</strong>florencemnyazi@gmail.com</p>
-                     </div>
-        </div>
-
-    </div>
-
-</div>
-
-<!-- End Footer -->
-<script language ="javascript"> </script>
-<script src='javascripts/jquery-3.2.1.min.js'></script>
-<script src='javascripts/bootstrap.min.js'></script>
-<scripts src='javascripts/script.js'></script>
-  </body>
-</html>#}
-
-<html>
-  <head>
-    <title>BucketList App- login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-    <div class="container">
       <h1>Please login</h1>
       <br>
-      <form action="" method="post">
+      <form action="" method="post" name ="login">
         <input type="text" placeholder="Username" name="username" value="{{
           request.form.username }}">
          <input type="password" placeholder="Password" name="password" value="{{
           request.form.password }}">
-        <input class="btn btn-default" type="submit" value="Login">
-      </form>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
-    </div>
-  </body>
-</html>
+           </div>
+                <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+            </form>
+        
+{% endblock %}
+        
