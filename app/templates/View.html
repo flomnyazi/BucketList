@@ -16,6 +16,7 @@
 </head>
 <body>
   <h2> My Ultimate Bucketlist!</h2>
+  <form action="/View" method = "post" form name = "View">
   <fieldset>
     <div class="jumbotron">
       <legend>BucketList 1:</legend>
@@ -27,17 +28,18 @@
              </ul>
 
         <legend>BucketList 2: </legend>
-        <ul>
-          <li>Camp Under the stars</li>
-            <li>Go for a SautiSol Concert</li>
+        <ul>{% for item in %}
+          <li></li>
+            <li>{{item}</li>
             <li>Tour the Masaai Mara</li>
             <li>Go backpacking in Europe</li>
+            {%endfor%}
                </ul>
 
         </fieldset>
         <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-        <a href='/index' <button type="submit" class=" btn btn-primary">LogOut! </button></a>
+        <a href="index.html" <button type="submit" class=" btn btn-primary">LogOut! </button></a>
         </div>
         </div>
         <div class="container footer">
@@ -55,6 +57,6 @@
 
             </div>
 
-        </div>
-        </body>
-        </html>
+</div>
+</body>
+</html>

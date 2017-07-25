@@ -5,7 +5,7 @@ from app.users.users import User
 app = Flask(__name__)
 app.secret_key = 'topsecret'
 
-i=0
+
 # Data structure
 users = {'test@test.com': 'some thing here'} # we save the class here
 bucketlists = {}
@@ -37,7 +37,7 @@ def login():
         if userName in users:
             if passwd == users[userName].password:
                 session['logged_in'] = True
-            return redirect(url_for('create_bucketlist'))
+                return redirect(url_for('create_bucketlist'))
     return render_template('login.html')
 
 
@@ -63,41 +63,40 @@ def logout():
     flash('you are logged out.')
     return redirect(url_for('index'))
 
-
-@app.route('/mybucketlist', methods=['GET', 'POST'])
+@app.route('/mybucketlist',methods =['GET','POST'])
 @login_required
 def create_bucketlist():
     if request.method == 'POST':
         bucketlist = request.form['mybucketlist']
         user_id = session['id']
-        flash(bucketlist + ' has been added successful.')
+        flash(bucketlist + 'has been added successfully')
     return render_template('mybucketlist.html')
 
-@app.route('/mybucketlist', methods =['GET', 'POST'])
+
+
+@app.route('/View', methods =['GET', 'POST'])
 def update_bucketlist():
     if request.method == 'POST':
-        bucketlist = request.form['bucketlist']
+        bucketlist = request.form['View']
         user_id = session['id']
-        add_bucket_list(bucketlist, user_id)
+        User.add_bucket_list(bucketlist, user_id)
         flash(bucketlist + ' has been updated successful.')
-    return render_template('mybucketlist.html')
+    return render_template('View.html')
 
-@app.route('/mybucketlist', methods =['GET', 'POST'])
+@app.route('/bucketlist', methods =['GET', 'POST'])
 def delete_bucketlist():
     if request.method == 'POST':
         bucketlist = request.form['bucketlist']
         user_id = session['id']
-        add_bucket_list(bucketlist, user_id)
         flash(bucketlist + ' has been deleted successful.')
       
-    return render_template('mybucketlist.html')
+    return render_template('bucketlist.html')
 
 @app.route('/bucketlist', methods = ['GET','POST'])
 def add_bucketlist_item():
     if request.method == 'POST':
         bucketlist = request.form['bucketlist']
         user_id = session['id']
-        add_bucket_list( bucketlist, user_id)
         flash(bucketlist + 'item has been added succesfully.')
 
 def edit_bucketlist_item():
@@ -115,4 +114,6 @@ def delete_bucketlist_item():
 
 @app.route('/viewbucketlist')
 def view_bucketlist():
+    datas = "data"
     return render_template('View.html')
+

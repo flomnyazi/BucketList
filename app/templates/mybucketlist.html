@@ -11,12 +11,12 @@
   <!-- The width=device-width sets the width of the page to follow screen width-->
   <!--The initial-scale =1 element sets the initial zoom level when the page is first loaded by the browser-->
   <title> BucketList </title>
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
-    <link href="styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}"/>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet"/>
 </head>
 <body>
 <h2> Get started here by creating a bucketlist!</h2>
-<form action="/action_page.php">
+<form action="/mybucketlist" method="post" name="mybucketlist">
 <fieldset>
 <div class ="jumbotron">
 <legend>My BucketLists:</legend>
@@ -45,8 +45,6 @@ Delete BucketList:<br>
               <p><strong>Email:</strong>florencemnyazi@gmail.com</p>
                      </div>
         </div>
-        <script src='javascripts/jquery-3.2.1.min.js'></script>
-        <script src='javascripts/bootstrap.min.js'></script>
-        <scripts src='javascripts/script.js'></script>
+        
         </body>
         </html>
