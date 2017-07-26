@@ -16,25 +16,23 @@
 </head>
 <body>
   <h2> My Ultimate Bucketlist!</h2>
-  <form action="/View" method = "post" form name = "View">
+  <form action='/view' method = "post" form name = "view">
   <fieldset>
     <div class="jumbotron">
-      <legend>BucketList 1:</legend>
-      <ul>
-        <li>Climb Mt.Kilimanjaro</li>
-          <li>Visit Paris</li>
-          <li>Go Skydiving</li>
-          <li> Learn to drive </li>
+      <legend>BucketLists:</legend>
+      <ul>{% for bucket in bucketlists %}
+        <li> {{bucketlists[bucket].name}}</li>
+          {%endfor%}
              </ul>
 
-        <legend>BucketList 2: </legend>
-        <ul>{% for item in %}
+       <!-- <legend>BucketList 1: </legend>
+        <ul>{% for bucketlist in bucketlists %}
           <li></li>
-            <li>{{item}</li>
-            <li>Tour the Masaai Mara</li>
-            <li>Go backpacking in Europe</li>
+            <li>{}</li>
+            <li>{}</li>
+            <li>{}</li>
             {%endfor%}
-               </ul>
+               </ul> -->
 
         </fieldset>
         <div class="form-group">

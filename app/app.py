@@ -1,15 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
 from app.users.users import User
+from app.bucketlists.bucketlists import BucketList
+
 
 app = Flask(__name__)
 app.secret_key = 'topsecret'
 
 
 # Data structure
-users = {'test@test.com': 'some thing here'} # we save the class here
+users = {} # we save the class here
 bucketlists = {}
 activities = []
+
+def get_id_for_userName(userName):
+    for user in users:
+        print(user)
+        if users[user].userName == userName:
+            return users[user].id
 
 def login_required(f):
     @wraps(f)
@@ -34,10 +42,11 @@ def login():
     if request.method == 'POST':
         userName = request.form['userName']
         passwd = request.form['passwd']
-        if userName in users:
-            if passwd == users[userName].password:
+        if get_id_for_userName(userName):
+            if passwd == users[get_id_for_userName(userName)].password:
                 session['logged_in'] = True
-                return redirect(url_for('create_bucketlist'))
+                session['id']= get_id_for_userName(userName)
+            return redirect(url_for('create_bucketlist'))
     return render_template('login.html')
 
 
@@ -51,7 +60,7 @@ def signup():
         passwd2 = request.form['passwd2']
         if passwd == passwd2:
             new_user = User(firstName, email, userName, passwd)
-            users[userName] = new_user
+            users[new_user.id] = new_user
         return redirect(url_for('login'))
     return render_template('signup.html')
 
@@ -67,21 +76,24 @@ def logout():
 @login_required
 def create_bucketlist():
     if request.method == 'POST':
-        bucketlist = request.form['mybucketlist']
+        bucketlist = request.form['BucketListName']
         user_id = session['id']
-        flash(bucketlist + 'has been added successfully')
+        new_bucketlist = BucketList(bucketlist,user_id)
+        bucketlists[new_bucketlist.bucketlist_id] = new_bucketlist
+        print(bucketlist, new_bucketlist)                                                                                                    
+        return redirect(url_for('view_bucketlist'))
     return render_template('mybucketlist.html')
 
 
-
-@app.route('/View', methods =['GET', 'POST'])
+@app.route('/bucketlist', methods =['GET', 'POST'])
 def update_bucketlist():
     if request.method == 'POST':
-        bucketlist = request.form['View']
+
+        bucketlist = request.form['/bucketlist']
         user_id = session['id']
-        User.add_bucket_list(bucketlist, user_id)
+        BucketList.add_bucket_list(bucketlist, user_id)
         flash(bucketlist + ' has been updated successful.')
-    return render_template('View.html')
+    return render_template('bucketlist.html')
 
 @app.route('/bucketlist', methods =['GET', 'POST'])
 def delete_bucketlist():
@@ -103,8 +115,8 @@ def edit_bucketlist_item():
     if request.method == 'POST':
         bucketlist = request.form['bucketlist']
         user_id = session ['id']
-        edit_bucket_list(bucketlist, user_id)
         flash(bucketlist + 'item has been updated successfully.')
+
 def delete_bucketlist_item():
     if request.method == 'POST':
         bucketlist = request.form['bucketlist']
@@ -112,8 +124,7 @@ def delete_bucketlist_item():
 
 
 
-@app.route('/viewbucketlist')
+@app.route('/view')
 def view_bucketlist():
-    datas = "data"
-    return render_template('View.html')
+    return render_template('View.html', bucketlists=bucketlists)
 
