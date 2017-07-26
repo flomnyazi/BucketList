@@ -18,24 +18,15 @@
 
   <div class ="container narrow">
 
-      <h2> What do you want to do before you expire?</h2>
-
       <p> Dreamt of going bungee jumping; Want to go on a hot air baloon ride in the Mara; Or do you simply want to go camping under the stars? Create you ultimate bucketlist by adding items below and when you want to accomplish </p>
-      <form name ="bucketlist" method="post" action="/bucketlist">
+      <form method="post" action="/edit_bucketlist">
   <fieldset>
     <div class="jumbotron">
     <legend>My BucketList:</legend>
-    BucketList Name:<br>
-    <input type="text" name="BucketList Name" value=""><br>
-    Add BucketList Item:<br>
-    <input type="text" name="BucketList Item" value=""><br><br>
-    <input type="submit" value="Submit">
-      <legend>My BucketList: </legend>
-          BucketList Name:<br>
-          <input type = "text" name="BucketList Name" value =""><br>
-          Delete BucketList Item:<br>
-        <input type = "text" name="BucketList Item" value=""><br><br>
-        <input type = "Submit" value="Submit">
+      BucketList Activity:<br>
+    <input type="text" name="BucketList_Item" value=""><br><br>
+    <input type="submit" value="Add">
+      
       </fieldset>
     </form>
   </div>

@@ -79,30 +79,31 @@ def create_bucketlist():
         bucketlist = request.form['BucketListName']
         user_id = session['id']
         new_bucketlist = BucketList(bucketlist,user_id)
-        bucketlists[new_bucketlist.bucketlist_id] = new_bucketlist
-        print(bucketlist, new_bucketlist)                                                                                                    
+        if user_id in bucketlists:
+            bucketlists[user_id][new_bucketlist.bucketlist_id] = new_bucketlist   
+        else:
+            bucketlists[user_id] = {new_bucketlist.bucketlist_id: new_bucketlist}
+
+
         return redirect(url_for('view_bucketlist'))
     return render_template('mybucketlist.html')
 
-
-@app.route('/bucketlist', methods =['GET', 'POST'])
-def update_bucketlist():
+@app.route('/edit_bucketlist/<bucket_id>', methods =['GET', 'POST'])
+def update_bucketlist(bucket_id):
+    bucketlist = bucketlists[session['id']][bucket_id]
     if request.method == 'POST':
-
         bucketlist = request.form['/bucketlist']
         user_id = session['id']
-        BucketList.add_bucket_list(bucketlist, user_id)
-        flash(bucketlist + ' has been updated successful.')
-    return render_template('bucketlist.html')
+        return redirect(url_for('view_bucketlist'))
+    return render_template('bucketlist.html', bucketlist = bucketlists)
 
-@app.route('/bucketlist', methods =['GET', 'POST'])
+@app.route('/del_bucketlist', methods =['GET', 'POST'])
 def delete_bucketlist():
     if request.method == 'POST':
-        bucketlist = request.form['bucketlist']
+        bucketlist = request.form['BucketListName']
         user_id = session['id']
-        flash(bucketlist + ' has been deleted successful.')
-      
-    return render_template('bucketlist.html')
+        return redirect (url_for('view_bucketlist'))
+    return render_template('mybucketlist.html')
 
 @app.route('/bucketlist', methods = ['GET','POST'])
 def add_bucketlist_item():
@@ -110,6 +111,7 @@ def add_bucketlist_item():
         bucketlist = request.form['bucketlist']
         user_id = session['id']
         flash(bucketlist + 'item has been added succesfully.')
+
 
 def edit_bucketlist_item():
     if request.method == 'POST':
@@ -126,5 +128,5 @@ def delete_bucketlist_item():
 
 @app.route('/view')
 def view_bucketlist():
-    return render_template('View.html', bucketlists=bucketlists)
+    return render_template('View.html', bucketlists=bucketlists[session ['id']])
 

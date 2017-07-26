@@ -21,7 +21,7 @@
     <div class="jumbotron">
       <legend>BucketLists:</legend>
       <ul>{% for bucket in bucketlists %}
-        <li> {{bucketlists[bucket].name}}</li>
+        <li> {{bucketlists[bucket].name}} <a href ="/edit bucketlist" class = "btn btn-default"> Edit</a><a href ="/del bucketlist" class = "btn btn-default"> Delete</li>
           {%endfor%}
              </ul>
 
