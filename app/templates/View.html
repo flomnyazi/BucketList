@@ -21,18 +21,9 @@
     <div class="jumbotron">
       <legend>BucketLists:</legend>
       <ul>{% for bucket in bucketlists %}
-        <li> {{bucketlists[bucket].name}} <a href ="/edit bucketlist" class = "btn btn-default"> Edit</a><a href ="/del bucketlist" class = "btn btn-default"> Delete</li>
+        <li> {{bucketlists[bucket].name}} <a href ="/edit_bucketlist/{{bucketlists[bucket].bucketlist_id}}" class = "btn btn-default"> Edit</a><a href ="/del_bucketlist/{{bucketlists[bucket].bucketlist_id}} " class = "btn btn-default"> Delete</li>
           {%endfor%}
              </ul>
-
-       <!-- <legend>BucketList 1: </legend>
-        <ul>{% for bucketlist in bucketlists %}
-          <li></li>
-            <li>{}</li>
-            <li>{}</li>
-            <li>{}</li>
-            {%endfor%}
-               </ul> -->
 
         </fieldset>
         <div class="form-group">
