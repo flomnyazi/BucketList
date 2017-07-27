@@ -93,17 +93,6 @@ def create_bucketlist():
         return redirect(url_for('view_bucketlist'))
     return render_template('mybucketlist.html')
 
-@app.route('/edit_bucketlist/<bucket_id>', methods =['GET', 'POST'])
-def edit_bucketlist(bucket_id):
-    """ enables one to edit a bucketlist"""
-    user_id = session['id']
-    bucket = bucketlists[user_id][bucket_id]
-    if request.method == "POST":
-        bucketlist = request.form['BucketListName']   
-        bucket.name = bucketlist
-        return redirect(url_for('view_bucketlist'))
-    return render_template('edit_bucketlist.html')
-
 @app.route('/del_bucketlist/<bucket_id>')
 def delete_bucketlist(bucket_id):
     """ enables one to delete a bucketlist"""
