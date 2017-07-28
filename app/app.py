@@ -35,7 +35,7 @@ def login_required(f):
 @app.route('/index')
 def index():
     """ opens index page"""
-    return render_template('index.html') #returns the home page
+    return render_template('index.html') 
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -65,7 +65,7 @@ def signup():
             new_user = User(firstName, email, userName, passwd)
             users[new_user.id] = new_user
         return redirect(url_for('login'))
-    return render_template('signup.html')
+    return render_template('login.html')
 
 @app.route('/logout')
 def logout():
@@ -92,6 +92,18 @@ def create_bucketlist():
 
         return redirect(url_for('view_bucketlist'))
     return render_template('mybucketlist.html')
+
+@app.route('/edit_bucketlist/<bucket_id>', methods =['GET', 'POST'])
+@login_required
+def edit_bucketlist(bucket_id):
+    """ enables one to edit a bucketlist"""
+    user_id = session['id']
+    bucket = bucketlists[user_id][bucket_id]
+    if request.method == "POST":
+        bucketlist = request.form['BucketListName']
+        bucket.name = bucketlist
+        return redirect(url_for('view_bucketlist'))
+    return render_template('edit_bucketlist.html')
 
 @app.route('/del_bucketlist/<bucket_id>')
 def delete_bucketlist(bucket_id):

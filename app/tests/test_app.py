@@ -1,21 +1,18 @@
 import unittest
-from app import app
-from bucketlists.bucketlists import BucketList
-from users.users import User
+from app.app import *
+from ..bucketlists.bucketlists import BucketList
+from ..users.users import User
 
 
 class TestApp(unittest.TestCase):
     
     def setUp(self):
-        self.user1 = User()
-        self.user1.name = "Name 1"
-        self.user1.email = "user@email.com"
-        self.user1.userName = "username1"
-        self.user1.password = "passWd"
+        self.user1 = User("Name 1", "user@email.com", "username1", "username1")
         self.user1.id = 1
     
     def test_a_user_can_sign_up(self):
-        pass
+        response = self.client.post('/signup', self.user1)
+        self.assertEqual(response.status_code, 200)
 
     def test_a_user_can_login(self):
         pass

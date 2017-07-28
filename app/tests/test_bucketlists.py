@@ -1,14 +1,13 @@
 import unittest
-from app.bucketlists.bucketlists import BucketList
-from app.activity.activity import Activity
-from app.app import bucketlists as my_bucketlists
+from ..bucketlists.bucketlists import BucketList
+from ..Activities.activity import Activity
 
 
 class TestBucketList(unittest.TestCase):
     
-    def test_an_instance_of_bucketlist(self):
-        self.assertIsInstance(self.bucketlist, BucketList)
-
-
+    def test_instance_if_bucketlist(self):
+        bucket1 = BucketList('bname', 1)
+        self.assertIsInstance(bucket1, BucketList)
+    
 if __name__ == '__main__':
     unittest.main( )
